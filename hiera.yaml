@@ -1,15 +1,9 @@
 ---
 :backends:
-  - eyaml
   - yaml
-:eyaml:
-  :datadir: /etc/puppet/hieradata
 :yaml:
-  :datadir: /etc/puppet/hieradata
+  :datadir: /etc/puppetlabs/puppet/hieradata
 :hierarchy:
-  - "%{::init_env}/%{::init_role}"
   - "%{::init_role}"
-  - "%{::init_env}"
+  - galera
   - common
-  - mysql
-  - consulserver
