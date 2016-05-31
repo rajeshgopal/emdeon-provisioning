@@ -1,3 +1,3 @@
 class role::galera {
-  include ::profile::galera
+  include ::profile::galeranode
 }
