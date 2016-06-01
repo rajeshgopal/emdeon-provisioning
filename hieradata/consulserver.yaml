@@ -9,3 +9,5 @@ consul::config_hash:
   log_level: "INFO"
   node_name: "server"
   server: "true"
+  ui_dir: "/opt/consul/ui"
+  client_addr: "0.0.0.0"
