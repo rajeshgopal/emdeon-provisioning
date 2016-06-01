@@ -5,5 +5,5 @@
   :datadir: /etc/puppet/hieradata
 :hierarchy:
   - "%{::init_role}"
-  - galera
+#  - galera
   - common
