@@ -2,4 +2,7 @@ forge "https://forge.puppetlabs.com"
 
 mod 'puppetlabs/stdlib'
 mod 'puppetlabs/mysql'
-mod 'michaeltchapman/galera'
+mod 'spiette/selinux'
+mod 'KyleAnderson/consul'
+mod 'puppet/galera'
+  :git => "https://github.com/michaeltchapman/puppet-galera.git
