@@ -2,7 +2,7 @@
 :backends:
   - yaml
 :yaml:
-  :datadir: /etc/puppetlabs/puppet/hieradata
+  :datadir: /etc/puppet/hieradata
 :hierarchy:
   - "%{::init_role}"
   - galera
