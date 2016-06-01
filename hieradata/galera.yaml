@@ -10,3 +10,13 @@ consul::config_hash:
   bind_addr: "%{::ipaddress_eth0}"
   server: "false"
   start_join: "%{hiera('join_addr')}"
+
+consul::services:
+  service1:
+    address: "%{::ipaddress}"
+    checks:
+      - http: http://localhost:42/status
+        interval: 5s
+    port: 42
+    tags:
+      - "galera-%{init_role}"
