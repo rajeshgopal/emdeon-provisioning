@@ -47,4 +47,4 @@ ln -s /etc/puppet/hiera.yaml /etc/hiera.yaml
 gem install activesupport librarian-puppet
 /usr/local/bin/librarian-puppet install --verbose
 
-/usr/local/bin/puppet apply /etc/puppet/manifest/site.pp
+/usr/local/bin/puppet apply /etc/puppet/manifests/site.pp
