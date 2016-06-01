@@ -45,6 +45,6 @@ ln -s /opt/test-provisioning /etc/puppet
 ln -s /etc/puppet/hiera.yaml /etc/hiera.yaml
 
 gem install activesupport librarian-puppet
-#librarian-puppet install --verbose
+/usr/local/bin/librarian-puppet install --verbose
 
-puppet apply /etc/puppet/manifest/site.pp
+/usr/local/bin/puppet apply /etc/puppet/manifest/site.pp
