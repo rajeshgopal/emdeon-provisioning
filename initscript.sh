@@ -4,7 +4,7 @@ yum install -y redhat-lsb-core
 yum install -y yum-utils
 yum-config-manager --enable rhui-REGION-rhel-server-optional
 yum install -y augeas-devel ncurses-devel gcc gcc-c++ curl git
-yum install -y ruby ruby-revel
+yum install -y ruby ruby-devel
 gem install puppet:3.8.7 hiera facter ruby-augeas hiera-eyaml ruby-shadow
 
 
