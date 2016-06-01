@@ -7,7 +7,7 @@ yum install -y augeas-devel ncurses-devel gcc gcc-c++ curl git
 yum install -y ruby ruby-devel
 gem install puppet:3.8.7 hiera facter ruby-augeas hiera-eyaml ruby-shadow
 
-
+export PATH=$PATH:/usr/local/bin
 mkdir -p /etc/facter/facts.d
 export FACTER_init_role=$1
 echo init_role=$1 > /etc/facter/facts.d/init_role.txt
@@ -45,6 +45,6 @@ ln -s /opt/test-provisioning /etc/puppet
 ln -s /etc/puppet/hiera.yaml /etc/hiera.yaml
 
 gem install activesupport librarian-puppet
-cd /etc/puppet && /usr/local/bin/librarian-puppet install --verbose
+cd /etc/puppet && librarian-puppet install --verbose
 
-/usr/local/bin/puppet apply /etc/puppet/manifests/site.pp
+puppet apply /etc/puppet/manifests/site.pp
