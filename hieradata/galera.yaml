@@ -7,8 +7,8 @@ consul::config_hash:
   datacenter: "east-aws"
   log_level: "INFO"
   node_name: "agent-%{::hostname}"
-  server: "false"
-  retry_join: "%{hiera('join_addr')}"
+  server: false
+  retry_join: ["10.0.1.10"]
 
 consul::services:
   service1:
