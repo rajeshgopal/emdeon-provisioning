@@ -10,7 +10,7 @@ gem install puppet:3.8.7 hiera facter ruby-augeas hiera-eyaml ruby-shadow
 
 mkdir -p /etc/facter/facts.d
 export FACTER_init_role=$1
-echo “init_role=$1” > /etc/facter/facts.d/init_role.txt
+echo init_role=$1 > /etc/facter/facts.d/init_role.txt
 
 echo "-----BEGIN RSA PRIVATE KEY-----
 MIIEowIBAAKCAQEAp9pQVZHcriN5Lips0R4VsAs/50wNJiAMShGvdU3PLmutAk1Hpig+q5vlBVXe
