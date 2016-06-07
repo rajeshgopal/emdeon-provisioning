@@ -2,9 +2,10 @@
 
 yum install -y redhat-lsb-core
 yum install -y yum-utils
-yum-config-manager --enable rhui-REGION-rhel-server-optional
+yum-config-manager --enable rhui-REGION-rhel-server-releases-optional #for RHEL6
+yum-config-manager --enable rhui-REGION-rhel-server-optional #for RHEL7
 yum install -y augeas-devel ncurses-devel gcc gcc-c++ curl git
-yum install -y ruby ruby-devel
+yum install -y https://github.com/feedforce/ruby-rpm/releases/download/2.3.0/ruby-2.3.0-1.el6.x86_64.rpm
 gem install puppet:3.8.7 hiera facter ruby-augeas hiera-eyaml ruby-shadow
 
 export PATH=$PATH:/usr/local/bin
