@@ -10,8 +10,8 @@ Package['unzip'] -> Class['::profile::consulagent']
 yumrepo { 'galera':
   name     => 'galera-server',
   ensure   => present,
-  baseurl  => 'http://releases.galeracluster.com/redhat/7/x86_64/',
-  gpgkey   => 'http://releases.galeracluster.com/GPG-KEY-galeracluster.com',
+  baseurl  => 'http://yum.mariadb.org/10.1/rhel6-amd64/',
+  gpgkey   => 'https://yum.mariadb.org/RPM-GPG-KEY-MariaDB',
   gpgcheck => '1',
   enabled  => '1',
 }
@@ -42,14 +42,16 @@ file {'/usr/lib/mysql/wsrep_notify.sh':
   require => [File['/usr/lib/mysql/'],User['mysql']],
 }
 class { '::galera':
-  configure_repo   => false,
-  galera_servers   => [$::fqdn],
-  galera_master    => $::fqdn,
-  vendor_type      => 'codership', # default is 'percona',
-  status_password  => 'mysecret',
-  root_password    => 'secret',
-  status_check     => 'true',
-  override_options => {
+  configure_repo      => false,
+  galera_servers      => [$::fqdn],
+  galera_master       => $::fqdn,
+  vendor_type         => 'mariadb', # default is 'percona',
+  mysql_package_name  => 'MariaDB-server',
+  galera_package_name => 'galera',
+  status_password     => 'mysecret',
+  root_password       => 'secret',
+  status_check        => 'true',
+  override_options    => {
     'mysqld' => {
       'wsrep_notify_cmd' => '/usr/lib/mysql/wsrep_notify.sh',
     }
