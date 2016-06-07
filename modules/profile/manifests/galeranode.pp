@@ -56,10 +56,10 @@ class { '::galera':
   }
 }
 
-package {'mariadb-libs':
- ensure => absent,
- before => Class['galera']
-}
+#package {'mariadb-libs':
+# ensure => absent,
+# before => Class['galera']
+#}
 
 Yumrepo['galera']-> Class['selinux']->File['/usr/lib/mysql/wsrep_notify.sh']->Class['::galera']
 
