@@ -7,7 +7,7 @@ package { 'unzip':
 }
 include ::profile::consulagent
 
-Package['unzip'] -> Class['::profile::consulagent']
+Class ['::profile::base'] -> Package['unzip'] -> Class['::profile::consulagent']
 
 yumrepo { 'galera':
   name     => 'galera-server',
