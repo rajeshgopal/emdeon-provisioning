@@ -11,8 +11,8 @@ except:
 MASTER_KEY = "cluster_master"
 MASTER_VALUE = "%s" %shell_comm.ipadd()
 MASTER_PAYLOAD = {MASTER_KEY:MASTER_VALUE}
-NODES_ENDPOINT = "http://%s:8500/v1/catalog/nodes" %shell_comm.ipadd()
-KEY_ENDPOINT = "http://%s:8500/v1/kv/" %shell_comm.ipadd()
+NODES_ENDPOINT = "http://%s:8500/v1/catalog/nodes" %SERVER
+KEY_ENDPOINT = "http://%s:8500/v1/kv/" %SERVER
 allnodes = []
 
 nodes_req = requests.get(NODES_ENDPOINT)
