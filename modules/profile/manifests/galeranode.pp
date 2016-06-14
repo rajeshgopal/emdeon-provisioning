@@ -45,7 +45,7 @@ file {'/usr/lib/mysql/wsrep_notify.sh':
 }
 
 ## To setup masterkey and retrieve galera IPs
-$consulmaster = '10.0.0.245'
+$consulmaster = '10.0.0.15'
 $galeraips = generate("/bin/bash","-c", "python /opt/python/check_node_key.py $consulmaster")
 
 #Retrieves galera nodes IP
