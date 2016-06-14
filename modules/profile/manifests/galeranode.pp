@@ -41,10 +41,24 @@ file {'/usr/lib/mysql/wsrep_notify.sh':
   content => template('profile/wsrep_notify.sh'),
   require => [File['/usr/lib/mysql/'],User['mysql']],
 }
+
+## To setup masterkey and retrieve galera IPs
+$consulmaster = '10.0.0.245'
+$galeraips = generate("/bin/bash","-c", "python /opt/python/check_node_key.py $consulmaster")
+
+#Retrieves galera nodes IP
+if $galeraips =~ /(.*\n)+(?!(.*\n))/ {
+$galeranodes = $1
+}
+#retrieves galera Master IP
+if $galeraips =~ /(.*)/ {
+$galeramaster = $1
+}
+
 class { '::galera':
   configure_repo      => false,
-  galera_servers      => [$::fqdn],
-  galera_master       => $::fqdn,
+  galera_servers      => $galeranodes,
+  galera_master       => $galeramaster,
   vendor_type         => 'mariadb', # default is 'percona',
   mysql_package_name  => 'MariaDB-server',
   galera_package_name => 'galera',
