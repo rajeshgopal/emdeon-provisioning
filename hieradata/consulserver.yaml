@@ -7,7 +7,7 @@ consul::bin_dir: '/usr/bin'
 consul::config_hash:
   bootstrap_expect: "1"
   data_dir: "/opt/consul"
-  datacenter: "east-aws"
+  datacenter: "aws-east"
   log_level: "INFO"
   node_name: "consul-server"
   server: true
