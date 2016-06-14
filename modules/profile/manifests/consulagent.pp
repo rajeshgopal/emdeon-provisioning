@@ -6,7 +6,7 @@ class { '::consul':
    'data_dir'   => '/opt/consul',
    'datacenter' => 'aws-east',
    'log_level'  => 'INFO',
-   'retry_join' => ["$profile::galeranode::consulmaster"],
+   'retry_join' => ["$::profile::galeranode::consulmaster"],
    'client_addr' => $::ipaddress,
  },
  version => '0.6.4',
