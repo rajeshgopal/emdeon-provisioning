@@ -12,3 +12,4 @@ consul::config_hash:
   node_name: "consul-server"
   server: true
   ui_dir: "/opt/consul/ui"
+  client_addr: "0.0.0.0"
