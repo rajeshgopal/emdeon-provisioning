@@ -50,8 +50,13 @@ $galeraips = generate("/bin/bash","-c", "python /opt/python/check_node_key.py $c
 
 #Retrieves galera nodes IP
 if $galeraips =~ /(.*\n)+(?!(.*\n))/ {
-$galeranodes = $1
-}
+ if $1 == '' {
+   $galeranodes = [$::fqdn]
+   }
+ else {
+   $galeranodes = [$1]
+   }
+ }
 #retrieves galera Master IP
 if $galeraips =~ /(.*)/ {
 $galeramaster = $1
