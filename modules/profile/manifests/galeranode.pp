@@ -1,5 +1,7 @@
 class profile::galeranode {
 
+include ::profile::base
+
 package { 'unzip':
   ensure => installed
 }
