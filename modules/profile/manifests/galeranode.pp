@@ -45,7 +45,7 @@ file {'/usr/lib/mysql/wsrep_notify.sh':
 }
 
 ## To setup masterkey and retrieve galera IPs
-$consulmaster = '10.0.0.246'
+$consulmaster = '10.0.0.141'
 $galeraips = generate("/bin/bash","-c", "python /etc/puppet/modules/profile/files/check_node_key.py $consulmaster")
 
 #Retrieves galera nodes IP
@@ -75,6 +75,7 @@ class { '::galera':
   override_options    => {
     'mysqld' => {
       'wsrep_notify_cmd' => '/usr/lib/mysql/wsrep_notify.sh',
+      'wsrep_on' => 'ON',
     }
   }
 }
