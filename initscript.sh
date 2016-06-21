@@ -6,7 +6,7 @@ yum-config-manager --enable rhui-REGION-rhel-server-releases-optional #for RHEL6
 yum-config-manager --enable rhui-REGION-rhel-server-optional #for RHEL7
 yum install -y augeas-devel ncurses-devel gcc gcc-c++ curl git
 yum install -y https://github.com/feedforce/ruby-rpm/releases/download/2.1.5/ruby-2.1.5-2.el6.x86_64.rpm
-gem install puppet:3.8.7 hiera facter ruby-augeas hiera-eyaml ruby-shadow
+gem install puppet:3.8.7 hiera facter ruby-augeas hiera-eyaml ruby-shadow | xargs --no-ri --no-rdoc
 
 export PATH=$PATH:/usr/local/bin
 mkdir -p /etc/facter/facts.d
@@ -45,7 +45,7 @@ rm -rf /etc/puppet /etc/hiera.yaml
 ln -s /opt/test-provisioning /etc/puppet
 ln -s /etc/puppet/hiera.yaml /etc/hiera.yaml
 
-gem install activesupport librarian-puppet
+gem install activesupport librarian-puppet | xargs --no-ri --no-rdoc
 cd /etc/puppet && librarian-puppet install --verbose
 
 puppet apply /etc/puppet/manifests/site.pp
